@@ -11,7 +11,7 @@ export default async function Home() {
     content: true,
   }));
   const posts = await selectPosts.run(client);
-  console.log(posts);
+  console.log("POSTS", posts);
   return (
     <div className="container mx-auto p-4 bg-black text-white">
       <h1 className="text-3xl font-bold mb-4">Posts</h1>
