@@ -1,7 +1,7 @@
 //@ts-ignore
 import Link from "next/link";
 import { createClient } from "edgedb";
-import e from "@/dbschema/edgeql-js";
+import e from "..//dbschema/edgeql-js";
 
 const client = createClient();
 
