@@ -19,7 +19,6 @@ const BlogPost: $.$expr_PathNode<$.TypeSet<$BlogPost, $.Cardinality.Many>, null>
 export { $BlogPost, BlogPost };
 
 type __defaultExports = {
-  Schema: any;
   "BlogPost": typeof BlogPost
 };
 const __defaultExports: __defaultExports = {
