@@ -1,29 +1,41 @@
-import Link from "next/link";
-import { createClient } from "edgedb";
-import e from "@/dbschema/edgeql-js";
+// import Link from "next/link";
+// import { createClient } from "edgedb";
+// import e from "@/dbschema/edgeql-js";
 
-const client = createClient();
+// const client = createClient();
 
-export default async function Home() {
-  const selectPosts = e.select(e.BlogPost, () => ({
-    id: true,
-    title: true,
-    content: true,
-  }));
-  const posts = await selectPosts.run(client);
-  console.log("POSTS", posts);
+// export default async function Home() {
+//   const selectPosts = e.select(e.BlogPost, () => ({
+//     id: true,
+//     title: true,
+//     content: true,
+//   }));
+//   const posts = await selectPosts.run(client);
+//   console.log("POSTS", posts);
+//   return (
+//     <div className="container mx-auto p-4 bg-black text-white">
+//       <h1 className="text-3xl font-bold mb-4">Posts</h1>
+//       <ul>
+//         {posts.map((post) => (
+//           <li key={post.id} className="mb-4">
+//             <Link href={`/post/${post.id}`} className="text-blue-500">
+//               {post.title}
+//             </Link>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+import SchemaForm from "./components/SchemaForm";
+import SwipingInterface from "./components/SwipingInterface";
+
+export default function HomePage() {
   return (
-    <div className="container mx-auto p-4 bg-black text-white">
-      <h1 className="text-3xl font-bold mb-4">Posts</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id} className="mb-4">
-            <Link href={`/post/${post.id}`} className="text-blue-500">
-              {post.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <div>
+      <h1>Roast My Schema</h1>
+      <SchemaForm />
+      <SwipingInterface />
     </div>
   );
 }
