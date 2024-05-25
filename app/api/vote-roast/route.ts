@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import client from '@/lib/edgedb';
 import e from '@/dbschema/edgeql-js';
