@@ -1,5 +1,5 @@
 module default {
-  type BlogPost {
+  type EdgePost {
     required title: str;
     required content: str {
       default := ""

@@ -5,7 +5,7 @@ import e from "@/dbschema/edgeql-js";
 const client = createClient();
 
 export default async function Home() {
-  const selectPosts = e.select(e.BlogPost, () => ({
+  const selectPosts = e.select(e.EdgePost, () => ({
     id: true,
     title: true,
     content: true,

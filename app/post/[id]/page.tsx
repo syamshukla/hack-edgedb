@@ -1,36 +1,32 @@
-import { createClient } from 'edgedb'
-import e from '@/dbschema/edgeql-js'
-import Link from 'next/link'
+import { createClient } from "edgedb";
+import e from "@/dbschema/edgeql-js";
+import Link from "next/link";
 
-const client = createClient()
+const client = createClient();
 
 export default async function Post({ params }: { params: { id: string } }) {
   const post = await e
-    .select(e.BlogPost, (post) => ({
-      id: true,
+    .select(e.EdgePost, (post: { id: any }) => ({
+      id: true,2
       title: true,
       content: true,
-      filter_single: e.op(post.id, '=', e.uuid(params.id)),
+      filter_single: e.op(post.id, "=", e.uuid(params.id)),
     }))
-    .run(client)
+    .run(client);
 
   if (!post) {
-    return <div>Post not found</div>
+    return <div>Post not found</div>;
   }
 
   return (
     <div className="container mx-auto p-4 bg-black text-white">
       <nav>
-        <Link
-          href="/"
-          className="text-blue-500 mb-4 block"
-          replace
-        >
+        <Link href="/" className="text-blue-500 mb-4 block" replace>
           Back to list
         </Link>
       </nav>
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <p>{post.content}</p>
     </div>
-  )
+  );
 }
