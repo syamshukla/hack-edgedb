@@ -7,7 +7,7 @@ const client = createClient();
 export default async function Post({ params }: { params: { id: string } }) {
   const post = await e
     .select(e.EdgePost, (post: { id: any }) => ({
-      id: true,2
+      id: true,
       title: true,
       content: true,
       filter_single: e.op(post.id, "=", e.uuid(params.id)),
