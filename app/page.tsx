@@ -10,6 +10,7 @@ export default async function Home() {
     title: true,
     content: true,
   }));
+  
   const posts = await selectPosts.run(client);
   console.log("POSTS", posts);
   return (

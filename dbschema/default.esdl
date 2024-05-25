@@ -4,9 +4,9 @@ module default {
     required content: str {
       default := ""
     }
-    multi ratings: Rating;
+    multi ratings: Ratings;
   }
-  type Rating {
+  type Ratings{
     required rating: decimal;
     required link post -> EdgePost;
   }
